@@ -1,0 +1,16 @@
+body{
+    background-color: rgba(255, 220, 105, 0.363);
+}
+h1{
+    text-decoration: underline;
+    color: brown;
+}
+p{
+    color: rgb(247, 0, 255);
+}
+label{
+    color: rgb(139, 0, 97);
+}
+button{
+    color: purple;
+}

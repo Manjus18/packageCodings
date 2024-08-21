@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My age calcultor</title>
+    <link rel="stylesheet" href="age.css"/>
+</head>
+<body> 
+       <script>
+            function ageCalculate(){
+                let birthYear=document.getElementById("dob").value;
+                if(birthYear){
+                let birthDate=new Date(birthYear);
+                let todayDate=new Date();
+                let age=todayDate.getFullYear()-birthDate.getFullYear()
+                let monthDiffer=todayDate.getMonth()-birthDate.getMonth()
+                if(monthDiffer<0 || (monthDiffer===0 && todayDate.getDate()>birthDate.getDate())){
+                    age--;
+                }
+                document.getElementById("age").innerHTML="YOUR AGE IS:"+age;
+            }else{
+                document.getElementById("age").innerHTML="please enter a valid dob"
+            }
+      }
+        </script>
+        
+    <h1>AGE CALCULATION</h1>
+    <label for="dob" >Enter your DOB: </label>
+    <input type="date" id="dob">
+    <p id="age"></p>
+    <button type="button" onClick="ageCalculate()">Click me</button>
+    </body>
+</html>
