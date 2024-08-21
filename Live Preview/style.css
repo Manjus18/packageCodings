@@ -1,0 +1,17 @@
+.container{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: darkmagenta;
+    margin-top: 100px;
+}
+body{
+    background-color: rgb(238, 231, 130)
+}
+h1{
+    color: rgb(24, 17, 2);
+}
+#id1{
+    font-style: normal;
+    color: rgb(153, 51, 51);
+    font-size: x-large;
+}
