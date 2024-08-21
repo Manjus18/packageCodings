@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependent dropdowns</title>
+</head>
+<body>
+        <style>
+            body{
+                color: palevioletred;
+                padding: 100px;
+                background-color: bisque;
+                font-weight: bold;
+            }
+            select{
+                color: purple;
+                font-weight: bold;
+            }
+        </style>
+        <center>
+            <h1>DROPDOWN---DEPENDENTS</h1>
+            <h3>COUNTRY,STATES,DISTRICTS</h3>
+        
+            <label for="country">Country Name:</label>
+            <select id="country" onChange="populatedStates()">
+                <option value="" selected disabled>select ur Country name</option>
+                <option value="india">India</option>
+                <option value="america">America</option>
+                <option value="malaysiya">Malaysiya</option>
+                <option value="canada">Canada</option>
+            </select>
+            <select id="state" onChange="populatedDistricts()">
+                <option value="" selected disabled>select ur State name</option>
+            </select>
+            <select id="districts">
+                <option value="" >select ur District name</option>
+            </select>
+        </center>
+        <script>
+            var states={
+                india:["Maharashtra","Bihar","Chattigarh","Punjab","TamilNadu","Kerala","Srilanka"],
+                america:["California","Texas","Florida","Virgina","Alaska","Ohio"],
+                malaysiya:["Sarawak","Sabha","Johar"],
+                canada:["Alberta","BritishColumbia"]
+            };
+            var districts={
+                "Maharashtra":["Thane","Wardha","Washim","Yawatmal"],
+                 Bihar:["Bhojpur","Banghalpur","Araria","Arwal"],
+                 Chattigarh:["Pendra","Kirandul"],
+                 Punjab:["Amritsar","Ludhiana"],
+                 TamilNadu:["Chennai","Thoothukudi","Thirunelveli","Thiruvanathapuram","Kanyakumari"],
+                 Kerala:["Alapula","Vayanadu","Thekkadi"],
+                 Srilanka:["Kandy","Ayothiya","Ilangai"],
+                 California:["Anaheim","Fremont","Los Angels","Long Beach"],
+                 Texas:["Bee","Bell","Bexar","Blanco"],
+                 Florida:["Pinellas","Polk","Putnam"],
+                 Virgina:["Lucknow","aaa"],
+                 Alaska:["Anchorage"],
+                 Ohio:["Ada","Frankfort"],
+                 Sarawak:["Town City","Townhall"],
+                 Sabha:["Sabha Yoi","Netherlands"],
+                 Johar:["Himachal Pradesh","Kochi"],
+                 Alberta:["Wabaska","Sangudo"],
+                 BritishColumbia:["Alberni","Cariboo"]
+            };
+            var countrySelect=document.getElementById("country");
+            var stateSelect=document.getElementById("state")
+            var districtSelect=document.getElementById("districts")
+            function populatedStates(){
+                stateSelect.innerHTML='<option value="">Select a State</option>';
+                districtSelect.innerHTML='<option value="">Select a District</option>';
+                var selectedCountry=countrySelect.value;
+                if(selectedCountry){
+                    var selectedState=states[selectedCountry];
+                    selectedState.forEach(function(states){
+                        var option=document.createElement("option")
+                        option.value=states;
+                        option.text=states;
+                        stateSelect.appendChild(option);
+                    }
+                )            }
+            }
+            function populatedDistricts(){
+                districtSelect.innerHTML='<option value="">Select a District</option>';
+                var selectedStates=stateSelect.value;
+                if(selectedStates){
+                    var selectedDistrict=districts[selectedStates];
+                    selectedDistrict.forEach(function(district){
+                        var option=document.createElement("option")
+                        option.value=district;
+                        option.text=district;
+                        districtSelect.appendChild(option);
+
+                    })
+                }
+            }
+        </script> 
+    </body>
+</html>
